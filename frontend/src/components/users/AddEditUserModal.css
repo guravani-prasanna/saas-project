@@ -1,0 +1,230 @@
+/* =====================================================
+   AddEditUserModal.css
+   Ultra Premium User Modal
+===================================================== */
+
+/* ---------- Backdrop ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(59,130,246,0.18), transparent 60%),
+    rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: backdropFade 0.35s ease;
+}
+
+/* ---------- Modal Card ---------- */
+.modal {
+  width: 100%;
+  max-width: 540px;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 20px;
+  padding: 32px 36px;
+  position: relative;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.65);
+  animation: modalPop 0.35s cubic-bezier(.4,0,.2,1);
+}
+
+/* Top accent bar */
+.modal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(90deg, #3b82f6, #22c55e);
+  border-radius: 20px 20px 0 0;
+}
+
+/* ---------- Title ---------- */
+.modal h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 22px;
+  letter-spacing: 0.4px;
+}
+
+/* ---------- Form Layout ---------- */
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- Labels ---------- */
+.modal label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+}
+
+/* ---------- Inputs ---------- */
+.modal input,
+.modal select {
+  padding: 11px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: linear-gradient(#ffffff, #fafafa);
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/* Disabled email field (edit mode) */
+.modal input:disabled {
+  background: #f1f5f9;
+  cursor: not-allowed;
+  color: #64748b;
+}
+
+/* Focus effect */
+.modal input:focus,
+.modal select:focus {
+  border-color: #3b82f6;
+  box-shadow:
+    0 0 0 3px rgba(59,130,246,0.25),
+    inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* ---------- Role Highlight ---------- */
+.modal select[value="user"] {
+  border-left: 5px solid #22c55e;
+}
+
+.modal select[value="tenant_admin"] {
+  border-left: 5px solid #f59e0b;
+}
+
+/* ---------- Checkbox Row ---------- */
+.checkbox-row {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* Checkbox styling */
+.checkbox-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #3b82f6;
+  cursor: pointer;
+}
+
+.checkbox-row span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* ---------- Error Message ---------- */
+.error-msg {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: #7f1d1d;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border-left: 5px solid #dc2626;
+  animation: shake 0.3s ease;
+}
+
+/* ---------- Actions ---------- */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+/* ---------- Buttons ---------- */
+.modal-actions button {
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+/* Cancel */
+.modal-actions button[type="button"] {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.modal-actions button[type="button"]:hover {
+  background: #d1d5db;
+}
+
+/* Save */
+.modal-actions button[type="submit"] {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(37,99,235,0.45);
+}
+
+.modal-actions button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(37,99,235,0.6);
+}
+
+/* Disabled */
+.modal-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---------- Animations ---------- */
+@keyframes backdropFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .modal {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .modal h2 {
+    font-size: 21px;
+  }
+}

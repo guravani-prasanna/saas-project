@@ -1,0 +1,96 @@
+/* Navbar.css */
+
+nav {
+  background: linear-gradient(135deg, #1f2937, #111827);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Container spacing */
+nav .container {
+  max-width: 1200px;
+}
+
+/* LEFT LINKS */
+nav a {
+  color: #e5e7eb;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+  position: relative;
+  text-decoration: none;
+}
+
+/* Hover underline animation */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* USER INFO TEXT */
+nav span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #d1d5db;
+  white-space: nowrap;
+}
+
+/* LOGOUT BUTTON */
+nav button {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.35);
+}
+
+nav button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(239, 68, 68, 0.45);
+}
+
+nav button:active {
+  transform: scale(0.96);
+}
+
+/* RESPONSIVE (Mobile) */
+@media (max-width: 768px) {
+  nav .container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav .flex.space-x-4 {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav span {
+    font-size: 13px;
+    text-align: center;
+  }
+}

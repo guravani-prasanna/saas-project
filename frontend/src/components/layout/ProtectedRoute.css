@@ -1,0 +1,138 @@
+/* ===============================
+  ProtectedRoute.css
+  Enterprise Auth Loader
+================================ */
+
+/* Full screen secure background */
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.h-screen {
+  height: 100vh;
+  width: 100vw;
+  background:
+    radial-gradient(circle at top, #1e3a8a, transparent 60%),
+    radial-gradient(circle at bottom, #020617, #020617);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Animated floating background dots */
+.h-screen::before,
+.h-screen::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(59, 130, 246, 0.15);
+  filter: blur(120px);
+  animation: float 12s infinite alternate;
+}
+
+.h-screen::after {
+  right: 0;
+  bottom: 0;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(-80px) translateX(60px);
+  }
+}
+
+/* Glass card container */
+.h-screen > div {
+  position: relative;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  padding: 40px 50px;
+  border-radius: 18px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Spinner */
+.animate-spin {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 5px solid rgba(255, 255, 255, 0.15);
+  border-bottom-color: #3b82f6;
+  animation: spin 1s linear infinite;
+}
+
+/* Loading messages */
+.animate-spin::after {
+  content: "Authenticating user…";
+  position: absolute;
+  top: 95px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #e5e7eb;
+  letter-spacing: 0.6px;
+  animation: textCycle 6s infinite;
+  white-space: nowrap;
+}
+
+/* Subtext */
+.animate-spin::before {
+  content: "Securing your workspace";
+  position: absolute;
+  top: 125px;
+  font-size: 12px;
+  color: #9ca3af;
+  letter-spacing: 0.4px;
+  animation: pulse 2s infinite;
+}
+
+/* Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* Text cycle animation */
+@keyframes textCycle {
+  0%   { content: "Authenticating user…"; }
+  33%  { content: "Verifying role access…"; }
+  66%  { content: "Loading secure dashboard…"; }
+  100% { content: "Authenticating user…"; }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .h-screen > div {
+    padding: 30px 25px;
+  }
+
+  .animate-spin::after {
+    font-size: 14px;
+  }
+}
