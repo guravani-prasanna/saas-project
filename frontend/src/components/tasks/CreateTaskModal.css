@@ -1,0 +1,179 @@
+/* =====================================================
+   CreateTaskModal.css
+   Ultra Premium Task Modal
+===================================================== */
+
+/* ---------- Overlay ---------- */
+.fixed.inset-0 {
+  background:
+    radial-gradient(circle at top, rgba(59,130,246,0.15), transparent 60%),
+    rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+}
+
+/* ---------- Modal Card ---------- */
+.fixed.inset-0 > div {
+  animation: modalEnter 0.35s cubic-bezier(.4,0,.2,1);
+}
+
+.bg-white {
+  border-radius: 18px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top gradient accent */
+.bg-white::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(90deg, #3b82f6, #22c55e);
+}
+
+/* ---------- Header ---------- */
+.text-xl.font-bold {
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.4px;
+}
+
+/* Close button */
+.text-gray-500 {
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.text-gray-500:hover {
+  color: #ef4444;
+  transform: scale(1.1);
+}
+
+/* ---------- Labels ---------- */
+label {
+  font-weight: 600;
+  color: #334155;
+}
+
+/* ---------- Inputs ---------- */
+input,
+textarea,
+select {
+  background: linear-gradient(#ffffff, #fafafa);
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+/* Focus glow */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow:
+    0 0 0 3px rgba(59,130,246,0.25),
+    inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Textarea */
+textarea {
+  resize: vertical;
+}
+
+/* ---------- Priority Styling ---------- */
+select[value="low"] {
+  border-left: 5px solid #22c55e;
+}
+
+select[value="medium"] {
+  border-left: 5px solid #f59e0b;
+}
+
+select[value="high"] {
+  border-left: 5px solid #ef4444;
+}
+
+/* ---------- Error Message ---------- */
+.bg-red-100 {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  border-left: 5px solid #dc2626;
+  font-weight: 600;
+  animation: shake 0.3s ease;
+}
+
+/* ---------- Footer Buttons ---------- */
+button {
+  border-radius: 999px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+/* Cancel */
+button.border {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+button.border:hover {
+  background: #d1d5db;
+}
+
+/* Primary */
+.bg-blue-500 {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 10px 22px rgba(37,99,235,0.45);
+}
+
+.bg-blue-500:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(37,99,235,0.6);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .max-w-md {
+    max-width: 95%;
+  }
+}
