@@ -51,7 +51,7 @@ cd backend
 npm install
 3. Setup environment variables in .env:
 PORT=3000
-DATABASE_URL=postgresql://username:password@localhost:5432/dbname
+DATABASE_URL=postgresql://username:postgres password:postgres @localhost:5432/dbname
 JWT_SECRET=your_super_secret_key
 ```
 
